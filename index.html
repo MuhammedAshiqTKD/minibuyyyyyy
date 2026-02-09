@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINI BUT | Cute Kids Accessories</title>
+    <title>MINI BUY | Baby & Kids Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -19,13 +19,15 @@
                         body: ['Nunito', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#FF6B9D',
-                        secondary: '#FFC93C',
-                        accent: '#6BCB77',
-                        purple: '#9D4EDD',
-                        blue: '#4CC9F0',
-                        peach: '#FFB5A7',
-                        cream: '#FFF0F5',
+                        // Earthy, muted tones from the logo
+                        terracotta: '#C06C55',      // Rust/terracotta red from cloud
+                        sage: '#8B9D77',            // Muted sage green from cloud
+                        cream: '#F5F1E8',           // Warm cream background
+                        sand: '#E8DFD0',            // Sandy beige
+                        chocolate: '#5D4037',       // Dark brown text
+                        cocoa: '#8D6E63',           // Medium brown
+                        blush: '#E6D5C3',           // Soft blush/beige
+                        leaf: '#6B8E6B',            // Darker sage for accents
                     },
                     animation: {
                         'float': 'float 3s ease-in-out infinite',
@@ -51,43 +53,44 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E1 50%, #FFF8DC 100%);
+            background: linear-gradient(135deg, #F5F1E8 0%, #E8DFD0 50%, #F0EBE0 100%);
             overflow-x: hidden;
+            color: #5D4037;
         }
         
         .font-display {
             font-family: 'Fredoka', sans-serif;
         }
 
-        /* Custom Scrollbar */
+        /* Custom Scrollbar - earthy tones */
         ::-webkit-scrollbar {
             width: 12px;
         }
         ::-webkit-scrollbar-track {
-            background: #FFF0F5;
+            background: #F5F1E8;
         }
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #FF6B9D, #FFC93C);
+            background: linear-gradient(180deg, #C06C55, #8B9D77);
             border-radius: 6px;
-            border: 3px solid #FFF0F5;
+            border: 3px solid #F5F1E8;
         }
 
-        /* Blob Backgrounds */
+        /* Blob Backgrounds - muted earthy colors */
         .blob {
             position: absolute;
             border-radius: 50%;
             filter: blur(40px);
-            opacity: 0.6;
+            opacity: 0.4;
             z-index: 0;
             animation: float 6s ease-in-out infinite;
         }
 
-        /* Glass Card */
+        /* Glass Card - warm cream tint */
         .glass-card {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+            box-shadow: 0 8px 32px rgba(93, 64, 55, 0.1);
         }
 
         /* Product Card Hover */
@@ -96,7 +99,7 @@
         }
         .product-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.25);
+            box-shadow: 0 20px 40px rgba(192, 108, 85, 0.2);
         }
 
         /* WhatsApp Button Pulse */
@@ -109,12 +112,12 @@
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
 
-        /* Confetti Animation */
+        /* Confetti Animation - earthy palette */
         .confetti {
             position: fixed;
             width: 10px;
             height: 10px;
-            background-color: #f00;
+            background-color: #C06C55;
             animation: confetti-fall 3s linear forwards;
             z-index: 9999;
         }
@@ -123,9 +126,9 @@
             100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
 
-        /* Gradient Text */
+        /* Gradient Text - earthy gradient */
         .gradient-text {
-            background: linear-gradient(135deg, #FF6B9D 0%, #9D4EDD 50%, #4CC9F0 100%);
+            background: linear-gradient(135deg, #C06C55 0%, #8B9D77 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -168,22 +171,22 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Category Pill Active */
+        /* Category Pill Active - earthy gradient */
         .category-pill.active {
-            background: linear-gradient(135deg, #FF6B9D, #9D4EDD);
+            background: linear-gradient(135deg, #C06C55, #8B9D77);
             color: white;
             transform: scale(1.05);
         }
 
-        /* Price Tag */
+        /* Price Tag - earthy colors */
         .price-tag {
-            background: linear-gradient(135deg, #FFC93C, #FF6B9D);
+            background: linear-gradient(135deg, #C06C55, #8B9D77);
             clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
         }
 
         /* Loading Skeleton */
         .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background: linear-gradient(90deg, #E8DFD0 25%, #D4C8B8 50%, #E8DFD0 75%);
             background-size: 200% 100%;
             animation: loading 1.5s infinite;
         }
@@ -191,41 +194,55 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
+
+        /* Cloud decoration similar to logo */
+        .cloud-shape {
+            background: linear-gradient(135deg, #C06C55 0%, #8B9D77 100%);
+            border-radius: 50px;
+            position: relative;
+        }
+        .cloud-shape::before,
+        .cloud-shape::after {
+            content: '';
+            position: absolute;
+            background: inherit;
+            border-radius: 50%;
+        }
     </style>
 </head>
-<body class="text-gray-800 relative">
+<body class="relative">
 
-    <!-- Floating Blobs Background -->
-    <div class="blob w-96 h-96 bg-primary/30 top-0 -left-48"></div>
-    <div class="blob w-80 h-80 bg-secondary/30 top-40 right-0 animation-delay-2000"></div>
-    <div class="blob w-64 h-64 bg-accent/30 bottom-0 left-1/3 animation-delay-4000"></div>
-    <div class="blob w-72 h-72 bg-purple/20 top-1/3 right-1/4"></div>
+    <!-- Floating Blobs Background - earthy muted tones -->
+    <div class="blob w-96 h-96 bg-terracotta/30 top-0 -left-48"></div>
+    <div class="blob w-80 h-80 bg-sage/30 top-40 right-0 animation-delay-2000"></div>
+    <div class="blob w-64 h-64 bg-cocoa/20 bottom-0 left-1/3 animation-delay-4000"></div>
+    <div class="blob w-72 h-72 bg-sand/40 top-1/3 right-1/4"></div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
         <div class="glass-card mx-4 mt-4 rounded-full px-6 py-3 max-w-7xl mx-auto">
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-primary to-purple rounded-full flex items-center justify-center text-white font-display font-bold text-xl animate-bounce-slow">
+                    <div class="w-10 h-10 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center text-white font-display font-bold text-xl animate-bounce-slow">
                         MB
                     </div>
                     <span class="font-display font-bold text-2xl gradient-text">MINI BUY</span>
                 </div>
 
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#home" class="font-semibold hover:text-primary transition-colors">Home</a>
-                    <a href="#products" class="font-semibold hover:text-primary transition-colors">Shop</a>
-                    <a href="#categories" class="font-semibold hover:text-primary transition-colors">Categories</a>
-                    <a href="#about" class="font-semibold hover:text-primary transition-colors">About</a>
+                    <a href="#home" class="font-semibold hover:text-terracotta transition-colors">Home</a>
+                    <a href="#products" class="font-semibold hover:text-terracotta transition-colors">Shop</a>
+                    <a href="#categories" class="font-semibold hover:text-terracotta transition-colors">Categories</a>
+                    <a href="#about" class="font-semibold hover:text-terracotta transition-colors">About</a>
                 </div>
 
                 <div class="flex items-center gap-4">
                     <button class="relative p-2 hover:bg-white/50 rounded-full transition-colors" onclick="toggleCart()">
-                        <i class="fas fa-shopping-bag text-2xl text-primary"></i>
-                        <span id="cart-count" class="cart-badge absolute -top-1 -right-1 w-5 h-5 bg-secondary text-white text-xs rounded-full flex items-center justify-center font-bold hidden">0</span>
+                        <i class="fas fa-shopping-bag text-2xl text-terracotta"></i>
+                        <span id="cart-count" class="cart-badge absolute -top-1 -right-1 w-5 h-5 bg-sage text-white text-xs rounded-full flex items-center justify-center font-bold hidden">0</span>
                     </button>
                     <button class="md:hidden p-2" onclick="toggleMobileMenu()">
-                        <i class="fas fa-bars text-2xl text-primary"></i>
+                        <i class="fas fa-bars text-2xl text-terracotta"></i>
                     </button>
                 </div>
             </div>
@@ -233,16 +250,16 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-cream/95 backdrop-blur-lg transform translate-x-full transition-transform duration-300 md:hidden">
         <div class="p-8 pt-24">
-            <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-3xl text-primary">
+            <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-3xl text-terracotta">
                 <i class="fas fa-times"></i>
             </button>
             <div class="flex flex-col gap-6 text-center">
-                <a href="#home" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-primary">Home</a>
-                <a href="#products" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-primary">Shop</a>
-                <a href="#categories" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-primary">Categories</a>
-                <a href="#about" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-primary">About</a>
+                <a href="#home" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-terracotta">Home</a>
+                <a href="#products" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-terracotta">Shop</a>
+                <a href="#categories" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-terracotta">Categories</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="font-display text-2xl font-bold hover:text-terracotta">About</a>
             </div>
         </div>
     </div>
@@ -252,17 +269,17 @@
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div class="relative z-10 text-center md:text-left">
                 <div class="inline-block px-4 py-2 bg-white/80 rounded-full mb-6 shadow-lg animate-float">
-                    <span class="text-primary font-bold text-sm">✨ New Collection 2025</span>
+                    <span class="text-terracotta font-bold text-sm">✨ New Collection 2025</span>
                 </div>
-                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-6">
+                <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight mb-6 text-chocolate">
                     Tiny Accessories,<br>
-                    <span class="gradient-text">Big Smiles!</span> 🎀
+                    <span class="gradient-text">Big Smiles!</span> 🌿
                 </h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto md:mx-0">
+                <p class="text-lg text-cocoa mb-8 max-w-lg mx-auto md:mx-0">
                     Adorable accessories for your little ones! From cute backpacks to sparkly hair clips, we make childhood more colorful.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#products" class="px-8 py-4 bg-gradient-to-r from-primary to-purple text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    <a href="#products" class="px-8 py-4 bg-gradient-to-r from-terracotta to-sage text-white rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
                         <i class="fas fa-shopping-bag"></i>
                         Shop Now
                     </a>
@@ -272,17 +289,17 @@
                     </a>
                 </div>
                 
-                <div class="mt-8 flex items-center justify-center md:justify-start gap-4 text-sm text-gray-500">
+                <div class="mt-8 flex items-center justify-center md:justify-start gap-4 text-sm text-cocoa">
                     <div class="flex items-center gap-1">
-                        <i class="fas fa-check-circle text-accent"></i>
+                        <i class="fas fa-check-circle text-sage"></i>
                         <span>Free Shipping</span>
                     </div>
                     <div class="flex items-center gap-1">
-                        <i class="fas fa-check-circle text-accent"></i>
+                        <i class="fas fa-check-circle text-sage"></i>
                         <span>Cash on Delivery</span>
                     </div>
                     <div class="flex items-center gap-1">
-                        <i class="fas fa-check-circle text-accent"></i>
+                        <i class="fas fa-check-circle text-sage"></i>
                         <span>Premium Quality</span>
                     </div>
                 </div>
@@ -298,25 +315,25 @@
                     <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-lg animate-bounce">
                         <span class="text-2xl">🎒</span>
                     </div>
-                    <div class="absolute -bottom-4 -left-4 bg-secondary p-4 rounded-2xl shadow-lg animate-pulse-slow">
+                    <div class="absolute -bottom-4 -left-4 bg-terracotta p-4 rounded-2xl shadow-lg animate-pulse-slow">
                         <p class="font-display font-bold text-white">50% OFF</p>
                     </div>
                 </div>
                 
                 <!-- Decorative Stickers -->
-                <div class="sticker top-10 left-10">⭐</div>
-                <div class="sticker bottom-20 right-10 animation-delay-1000">🌈</div>
-                <div class="sticker top-1/2 right-0 animation-delay-2000">💖</div>
+                <div class="sticker top-10 left-10">🌱</div>
+                <div class="sticker bottom-20 right-10 animation-delay-1000">🍃</div>
+                <div class="sticker top-1/2 right-0 animation-delay-2000">🤎</div>
             </div>
         </div>
     </section>
 
-    <!-- Marquee Banner -->
-    <div class="py-4 bg-gradient-to-r from-primary via-purple to-secondary overflow-hidden">
+    <!-- Marquee Banner - earthy gradient -->
+    <div class="py-4 bg-gradient-to-r from-terracotta via-sage to-cocoa overflow-hidden">
         <div class="marquee-container">
             <div class="marquee-content text-white font-display font-bold text-lg">
-                🎀 FREE SHIPPING ON ORDERS ABOVE ₹999 &nbsp;&nbsp;&nbsp; 🌈 NEW ARRIVALS EVERY WEEK &nbsp;&nbsp;&nbsp; 💖 PREMIUM QUALITY GUARANTEED &nbsp;&nbsp;&nbsp; 🎁 SPECIAL DISCOUNTS FOR BULK ORDERS &nbsp;&nbsp;&nbsp; 
-                🎀 FREE SHIPPING ON ORDERS ABOVE ₹999 &nbsp;&nbsp;&nbsp; 🌈 NEW ARRIVALS EVERY WEEK &nbsp;&nbsp;&nbsp; 💖 PREMIUM QUALITY GUARANTEED &nbsp;&nbsp;&nbsp; 🎁 SPECIAL DISCOUNTS FOR BULK ORDERS &nbsp;&nbsp;&nbsp;
+                🌿 FREE SHIPPING ON ORDERS ABOVE ₹999 &nbsp;&nbsp;&nbsp; 🍃 NEW ARRIVALS EVERY WEEK &nbsp;&nbsp;&nbsp; 🤎 PREMIUM QUALITY GUARANTEED &nbsp;&nbsp;&nbsp; 🌱 SPECIAL DISCOUNTS FOR BULK ORDERS &nbsp;&nbsp;&nbsp; 
+                🌿 FREE SHIPPING ON ORDERS ABOVE ₹999 &nbsp;&nbsp;&nbsp; 🍃 NEW ARRIVALS EVERY WEEK &nbsp;&nbsp;&nbsp; 🤎 PREMIUM QUALITY GUARANTEED &nbsp;&nbsp;&nbsp; 🌱 SPECIAL DISCOUNTS FOR BULK ORDERS &nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
@@ -325,24 +342,24 @@
     <section id="categories" class="py-16 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-display text-4xl font-bold mb-4">Shop by Category</h2>
-                <p class="text-gray-600">Find the perfect accessories for your little ones</p>
+                <h2 class="font-display text-4xl font-bold mb-4 text-chocolate">Shop by Category</h2>
+                <p class="text-cocoa">Find the perfect accessories for your little ones</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-4 mb-12" id="category-filters">
-                <button onclick="filterProducts('all')" class="category-pill active px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg">
+                <button onclick="filterProducts('all')" class="category-pill active px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg text-chocolate">
                     All Products
                 </button>
-                <button onclick="filterProducts('backpacks')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2">
+                <button onclick="filterProducts('backpacks')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2 text-chocolate">
                     <span>🎒</span> Backpacks
                 </button>
-                <button onclick="filterProducts('hair')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2">
+                <button onclick="filterProducts('hair')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2 text-chocolate">
                     <span>🎀</span> Hair Accessories
                 </button>
-                <button onclick="filterProducts('watches')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2">
+                <button onclick="filterProducts('watches')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2 text-chocolate">
                     <span>⌚</span> Watches
                 </button>
-                <button onclick="filterProducts('bags')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2">
+                <button onclick="filterProducts('bags')" class="category-pill px-6 py-3 rounded-full bg-white shadow-md font-bold transition-all hover:shadow-lg flex items-center gap-2 text-chocolate">
                     <span>👜</span> Mini Bags
                 </button>
             </div>
@@ -353,8 +370,8 @@
     <section id="products" class="py-16 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="font-display text-4xl font-bold mb-4">Our Collection</h2>
-                <p class="text-gray-600">Click any product to order via WhatsApp</p>
+                <h2 class="font-display text-4xl font-bold mb-4 text-chocolate">Our Collection</h2>
+                <p class="text-cocoa">Click any product to order via WhatsApp</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="products-grid">
@@ -364,35 +381,35 @@
     </section>
 
     <!-- Features Section -->
-    <section class="py-16 px-4 bg-white/50">
+    <section class="py-16 px-4 bg-white/30">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
             <div class="text-center p-6 rounded-3xl glass-card hover:scale-105 transition-transform">
-                <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <div class="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                     🚚
                 </div>
-                <h3 class="font-display font-bold text-lg mb-2">Free Shipping</h3>
-                <p class="text-gray-600 text-sm">On orders above ₹999</p>
+                <h3 class="font-display font-bold text-lg mb-2 text-chocolate">Free Shipping</h3>
+                <p class="text-cocoa text-sm">On orders above ₹999</p>
             </div>
             <div class="text-center p-6 rounded-3xl glass-card hover:scale-105 transition-transform">
-                <div class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <div class="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                     💯
                 </div>
-                <h3 class="font-display font-bold text-lg mb-2">Best Quality</h3>
-                <p class="text-gray-600 text-sm">Premium materials only</p>
+                <h3 class="font-display font-bold text-lg mb-2 text-chocolate">Best Quality</h3>
+                <p class="text-cocoa text-sm">Premium materials only</p>
             </div>
             <div class="text-center p-6 rounded-3xl glass-card hover:scale-105 transition-transform">
-                <div class="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <div class="w-16 h-16 bg-cocoa/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                     🔄
                 </div>
-                <h3 class="font-display font-bold text-lg mb-2">Easy Returns</h3>
-                <p class="text-gray-600 text-sm">7 days return policy</p>
+                <h3 class="font-display font-bold text-lg mb-2 text-chocolate">Easy Returns</h3>
+                <p class="text-cocoa text-sm">7 days return policy</p>
             </div>
             <div class="text-center p-6 rounded-3xl glass-card hover:scale-105 transition-transform">
-                <div class="w-16 h-16 bg-purple/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                <div class="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
                     💬
                 </div>
-                <h3 class="font-display font-bold text-lg mb-2">WhatsApp Support</h3>
-                <p class="text-gray-600 text-sm">Quick response guaranteed</p>
+                <h3 class="font-display font-bold text-lg mb-2 text-chocolate">WhatsApp Support</h3>
+                <p class="text-cocoa text-sm">Quick response guaranteed</p>
             </div>
         </div>
     </section>
@@ -407,27 +424,27 @@
                 </div>
             </div>
             <div>
-                <h2 class="font-display text-4xl font-bold mb-6">Why Choose <span class="gradient-text">MINI BUT?</span></h2>
+                <h2 class="font-display text-4xl font-bold mb-6 text-chocolate">Why Choose <span class="gradient-text">MINI BUY?</span></h2>
                 <div class="space-y-4">
                     <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                        <div class="w-8 h-8 bg-terracotta rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
                         <div>
-                            <h4 class="font-bold text-lg">Kid-Friendly Designs</h4>
-                            <p class="text-gray-600">Every product is designed with love, keeping your child's comfort and style in mind.</p>
+                            <h4 class="font-bold text-lg text-chocolate">Kid-Friendly Designs</h4>
+                            <p class="text-cocoa">Every product is designed with love, keeping your child's comfort and style in mind.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                        <div class="w-8 h-8 bg-sage rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
                         <div>
-                            <h4 class="font-bold text-lg">Safe Materials</h4>
-                            <p class="text-gray-600">We use only non-toxic, child-safe materials for all our accessories.</p>
+                            <h4 class="font-bold text-lg text-chocolate">Safe Materials</h4>
+                            <p class="text-cocoa">We use only non-toxic, child-safe materials for all our accessories.</p>
                         </div>
                     </div>
                     <div class="flex gap-4 items-start">
-                        <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                        <div class="w-8 h-8 bg-cocoa rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
                         <div>
-                            <h4 class="font-bold text-lg">Affordable Prices</h4>
-                            <p class="text-gray-600">Premium quality doesn't have to break the bank. Best prices guaranteed!</p>
+                            <h4 class="font-bold text-lg text-chocolate">Affordable Prices</h4>
+                            <p class="text-cocoa">Premium quality doesn't have to break the bank. Best prices guaranteed!</p>
                         </div>
                     </div>
                 </div>
@@ -436,67 +453,67 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-primary/10 to-purple/10 pt-16 pb-8 px-4">
+    <footer class="bg-gradient-to-r from-terracotta/10 to-sage/10 pt-16 pb-8 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-purple rounded-full flex items-center justify-center text-white font-display font-bold">
+                        <div class="w-10 h-10 bg-gradient-to-br from-terracotta to-sage rounded-full flex items-center justify-center text-white font-display font-bold">
                             MB
                         </div>
-                        <span class="font-display font-bold text-2xl gradient-text">MINI BUT</span>
+                        <span class="font-display font-bold text-2xl gradient-text">MINI BUY</span>
                     </div>
-                    <p class="text-gray-600 mb-4">Making childhood more colorful, one accessory at a time!</p>
+                    <p class="text-cocoa mb-4">Making childhood more colorful, one accessory at a time!</p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-terracotta hover:text-white transition-colors text-chocolate">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-terracotta hover:text-white transition-colors text-chocolate">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-colors">
+                        <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-terracotta hover:text-white transition-colors text-chocolate">
                             <i class="fab fa-pinterest"></i>
                         </a>
                     </div>
                 </div>
                 <div>
-                    <h4 class="font-display font-bold text-lg mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
-                        <li><a href="#products" class="hover:text-primary transition-colors">Shop</a></li>
-                        <li><a href="#about" class="hover:text-primary transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    <h4 class="font-display font-bold text-lg mb-4 text-chocolate">Quick Links</h4>
+                    <ul class="space-y-2 text-cocoa">
+                        <li><a href="#home" class="hover:text-terracotta transition-colors">Home</a></li>
+                        <li><a href="#products" class="hover:text-terracotta transition-colors">Shop</a></li>
+                        <li><a href="#about" class="hover:text-terracotta transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-display font-bold text-lg mb-4">Categories</h4>
-                    <ul class="space-y-2 text-gray-600">
-                        <li><a href="#" class="hover:text-primary transition-colors">Backpacks</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Hair Accessories</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Watches</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Mini Bags</a></li>
+                    <h4 class="font-display font-bold text-lg mb-4 text-chocolate">Categories</h4>
+                    <ul class="space-y-2 text-cocoa">
+                        <li><a href="#" class="hover:text-terracotta transition-colors">Backpacks</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition-colors">Hair Accessories</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition-colors">Watches</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition-colors">Mini Bags</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-display font-bold text-lg mb-4">Contact Us</h4>
-                    <ul class="space-y-2 text-gray-600">
+                    <h4 class="font-display font-bold text-lg mb-4 text-chocolate">Contact Us</h4>
+                    <ul class="space-y-2 text-cocoa">
                         <li class="flex items-center gap-2">
-                            <i class="fab fa-whatsapp text-green-500"></i>
-                            <a href="https://wa.me/917994773465" class="hover:text-primary">+91 79947 73465</a>
+                            <i class="fab fa-whatsapp text-green-600"></i>
+                            <a href="https://wa.me/917994773465" class="hover:text-terracotta">+91 79947 73465</a>
                         </li>
                         <li class="flex items-center gap-2">
-                            <i class="fas fa-envelope text-primary"></i>
-                            <span>hello@minibut.com</span>
+                            <i class="fas fa-envelope text-terracotta"></i>
+                            <span>hello@minibuy.com</span>
                         </li>
                         <li class="flex items-center gap-2">
-                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            <i class="fas fa-map-marker-alt text-terracotta"></i>
                             <span>Kerala, India</span>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-200 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 MINI BUT. All rights reserved. Made with 💖 for kids!</p>
+            <div class="border-t border-sand pt-8 text-center text-cocoa">
+                <p>&copy; 2025 MINI BUY. All rights reserved. Made with 🤎 for kids!</p>
             </div>
         </div>
     </footer>
@@ -508,23 +525,23 @@
     </a>
 
     <!-- Product Modal -->
-    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-enter">
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-chocolate/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-cream rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-enter border-2 border-sand">
             <div class="p-6">
                 <div class="flex justify-between items-start mb-4">
-                    <h3 id="modal-title" class="font-display text-2xl font-bold"></h3>
-                    <button onclick="closeModal()" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                    <h3 id="modal-title" class="font-display text-2xl font-bold text-chocolate"></h3>
+                    <button onclick="closeModal()" class="w-8 h-8 bg-sand rounded-full flex items-center justify-center hover:bg-terracotta/20 transition-colors text-chocolate">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 <img id="modal-image" src="" alt="" class="w-full h-64 object-cover rounded-2xl mb-4">
                 <div class="flex justify-between items-center mb-4">
-                    <span id="modal-price" class="text-3xl font-display font-bold text-primary"></span>
-                    <span class="text-green-600 font-semibold flex items-center gap-1">
+                    <span id="modal-price" class="text-3xl font-display font-bold text-terracotta"></span>
+                    <span class="text-sage font-semibold flex items-center gap-1">
                         <i class="fas fa-check-circle"></i> In Stock
                     </span>
                 </div>
-                <p id="modal-description" class="text-gray-600 mb-6"></p>
+                <p id="modal-description" class="text-cocoa mb-6"></p>
                 <a id="modal-whatsapp" href="#" target="_blank" class="block w-full py-4 bg-green-500 text-white rounded-full font-bold text-center hover:bg-green-600 transition-colors flex items-center justify-center gap-2">
                     <i class="fab fa-whatsapp text-xl"></i>
                     Order on WhatsApp
@@ -688,17 +705,17 @@
                         <div class="absolute top-4 right-4 price-tag text-white px-4 py-2 font-display font-bold shadow-lg">
                             ₹${product.price}
                         </div>
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <button class="bg-white text-primary px-6 py-3 rounded-full font-bold transform scale-0 group-hover:scale-100 transition-transform">
+                        <div class="absolute inset-0 bg-chocolate/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <button class="bg-white text-terracotta px-6 py-3 rounded-full font-bold transform scale-0 group-hover:scale-100 transition-transform">
                                 View Details
                             </button>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-display font-bold text-lg mb-2 group-hover:text-primary transition-colors">${product.name}</h3>
+                        <h3 class="font-display font-bold text-lg mb-2 group-hover:text-terracotta transition-colors text-chocolate">${product.name}</h3>
                         <div class="flex justify-between items-center">
-                            <span class="text-2xl font-display font-bold text-primary">₹${product.price}</span>
-                            <button onclick="event.stopPropagation(); addToCart(${product.id})" class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                            <span class="text-2xl font-display font-bold text-terracotta">₹${product.price}</span>
+                            <button onclick="event.stopPropagation(); addToCart(${product.id})" class="w-10 h-10 bg-terracotta/10 rounded-full flex items-center justify-center text-terracotta hover:bg-terracotta hover:text-white transition-colors">
                                 <i class="fas fa-plus"></i>
                             </button>
                         </div>
@@ -806,7 +823,7 @@
         // Notification
         function showNotification(text) {
             const notif = document.createElement('div');
-            notif.className = 'fixed top-24 right-4 bg-primary text-white px-6 py-4 rounded-2xl shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex items-center gap-2';
+            notif.className = 'fixed top-24 right-4 bg-terracotta text-white px-6 py-4 rounded-2xl shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex items-center gap-2';
             notif.innerHTML = `<i class="fas fa-check-circle"></i> <span class="font-bold">${text}</span>`;
             document.body.appendChild(notif);
             
@@ -819,7 +836,7 @@
 
         // Confetti Effect
         function createConfetti() {
-            const colors = ['#FF6B9D', '#FFC93C', '#6BCB77', '#9D4EDD', '#4CC9F0'];
+            const colors = ['#C06C55', '#8B9D77', '#5D4037', '#E8DFD0', '#6B8E6B'];
             for (let i = 0; i < 20; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
